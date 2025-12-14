@@ -1,6 +1,6 @@
 # Guião sobre _signals_
 
-![IST](img/IST_DEI.png)  
+![IST](img/IST_DEI.png)
 
 ## Objetivos
 
@@ -41,7 +41,7 @@ A lista vai variar entre diferentes versões de Unix.
 Pode consultar a lista de processos ativos com o comando: [`ps`](https://man7.org/linux/man-pages/man1/ps.1p.html) (ou [`top`](https://man7.org/linux/man-pages/man1/top.1.html) ou [`pgrep`](https://man7.org/linux/man-pages/man1/pgrep.1.html)).
 
 Pergunta: Qual é o sinal enviado por omissão com o comando `kill 1234`?  
-(Sugestão: procure a resposta a página no manual, com o comando: `man kill`)
+(Sugestão: procure a resposta na página do manual, com o comando: `man kill`)
 
 Caso um programa não responda ao sinal de terminação ordeira (`SIGTERM`), pode ser usado o sinal para terminação forçada (`SIGKILL`), normalmente associado ao comando `kill -9`.
 
@@ -49,10 +49,10 @@ Caso um programa não responda ao sinal de terminação ordeira (`SIGTERM`), pod
 
 1. Clone este repositório, usando o git: `git clone https://github.com/tecnico-so/lab_signals.git`
 2. Estude o programa `intquit.c`:
-    - Repare na definição da função `sig_handler()`, que será chamada assincronamente para tratar o sinal, quando o processo o receber;
-    - Repare nos tratamentos do `SIGINT` (linha 16) e do `SIGQUIT` (linha 27);
-    - A função [`signal()`](https://man7.org/linux/man-pages/man2/signal.2.html) regista a rotina de tratamento para estes sinais (linhas 37 e 39).
-    Neste caso, a mesma rotina `sig_handler()` (nome escolhido pelo programador), vai ser registada para tratar dois sinais diferentes (`SIGINT` e `SIGQUIT`), mas poderiam ser configuradas rotinas diferentes;
+   - Repare na definição da função `sig_handler()`, que será chamada assincronamente para tratar o sinal, quando o processo o receber;
+   - Repare nos tratamentos do `SIGINT` (linha 16) e do `SIGQUIT` (linha 27);
+   - A função [`signal()`](https://man7.org/linux/man-pages/man2/signal.2.html) regista a rotina de tratamento para estes sinais (linhas 37 e 39).
+     Neste caso, a mesma rotina `sig_handler()` (nome escolhido pelo programador), vai ser registada para tratar dois sinais diferentes (`SIGINT` e `SIGQUIT`), mas poderiam ser configuradas rotinas diferentes;
 3. Compile o programa com a ferramenta `make` (dentro da pasta `src/`);
 4. Corra o programa (`./intquit`);
 5. Observe que o programa inicia e fica num ciclo infinito ou parado.
@@ -65,13 +65,14 @@ Caso um programa não responda ao sinal de terminação ordeira (`SIGTERM`), pod
 1. Adicione o tratamento do sinal `SIGTERM` numa nova função chamada `term_handler()`.
 2. Compile e teste.
 
-Notas: Não é possível enviar o sinal `SIGTERM` com um atalho como outros sinais. Para testar o código deveram:
+Notas: Não é possível enviar o sinal `SIGTERM` com um atalho como outros sinais. Para testar o código deverão:
+
 1. Parar o processo com o sinal `SIGSTOP` através do atalho `CTRL-Z`.
 2. Inspecionar o `pid` do vosso processo com o comando `ps`.
 3. Envir o sinal `SIGTERM` com o comando `kill pid`.
 4. Regressar ao vosso processo com o comando `fg`.
 
-----
+---
 
 ## Conclusão
 
@@ -85,6 +86,6 @@ Os _signals_ são também usados para o controlo de execução de vários progra
 Desta forma é possível ter vários programas a executar, um em primeiro plano (_foreground_) e outros em segundo plano (_background_).
 Fica a sugestão de explorar estas capacidades com os comandos [`jobs`](https://man7.org/linux/man-pages/man1/jobs.1p.html), [`bg`](https://man7.org/linux/man-pages/man1/bg.1p.html), [`fg`](https://man7.org/linux/man-pages/man1/fg.1p.html), e com o operador `&` no fim dos comandos que permite executá-los em _background_.
 
-----
+---
 
 Contactos para sugestões/correções: [LEIC-Alameda](mailto:leic-so-alameda@disciplinas.tecnico.ulisboa.pt), [LEIC-Tagus](mailto:leic-so-tagus@disciplinas.tecnico.ulisboa.pt), [LETI](mailto:leti-so-tagus@disciplinas.tecnico.ulisboa.pt)
