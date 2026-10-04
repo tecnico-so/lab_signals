@@ -77,18 +77,17 @@ Neste caso, a mesma rotina `sig_handler()` (nome escolhido pelo programador) vai
 
 3.2. Compile e teste.
 
-Notas:  
-Não é possível enviar o sinal `SIGTERM` com um atalho como outros sinais.  
+Nota: não é possível enviar o sinal `SIGTERM` com um atalho, como se faz no caso dos outros sinais.  
 
 Para testar o código deverá:
 
-- Suspender o processo com o sinal `SIGTSTP` através do atalho `CTRL-Z`.
+- Suspender o processo com o sinal `SIGTSTP` através do atalho `CTRL-Z`;
 
-- Inspecionar o `PID` do vosso processo com o comando `ps`.
+- Inspecionar o `PID` do processo com o comando `ps` ou outro;
 
-- Enviar o sinal `SIGTERM` com o comando `kill PID`.
+- Enviar o sinal `SIGTERM` com o comando `kill PID`;
 
-- Regressar ao vosso processo com o comando `fg`.
+- Regressar ao processo com o comando `fg`.
 
 ---
 
